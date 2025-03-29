@@ -1,0 +1,20 @@
+spring:
+    application:
+        name: Cafe
+    datasource:
+        url: jdbc:postgresql://localhost:5432/postgres
+        driver-class-name: org.postgresql.Driver
+        username: postgres
+        password: privet
+    jpa:
+        hibernate:
+            ddl-auto: update
+#        show-sql: true
+        generate-ddl: true
+    sql:
+        init:
+            data-locations: classpath:init.sql
+#            mode: always
+server:
+    port: 8080
+front-url: "https://b486-62-133-60-127.ngrok-free.app"
