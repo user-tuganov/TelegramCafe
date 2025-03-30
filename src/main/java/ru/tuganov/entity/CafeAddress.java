@@ -20,4 +20,7 @@ public class CafeAddress {
     @OneToMany(mappedBy = "cafeAddress")
     @JsonIgnore
     private List<CafeOrder> cafeOrder;
+    @OneToMany(mappedBy = "cafeAddress")
+    @JsonIgnore
+    private List<CafeEmployee> cafeEmployees;
 }

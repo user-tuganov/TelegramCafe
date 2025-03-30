@@ -12,7 +12,6 @@ import ru.tuganov.service.TelegramUserService;
 @RestController
 @RequestMapping("/profile")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "${front-url}")
 @Slf4j
 public class ProfileController {
     private final TelegramUserService telegramUserService;

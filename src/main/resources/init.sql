@@ -29,3 +29,11 @@ INSERT INTO discount_products (products_id, discounts_id) VALUES
 INSERT INTO cafe_address (id, address) VALUES
 (0, 'Москва, Тверская улица, 9'),
 (1, 'Москва, Улица Шверника, 9');
+
+
+INSERT INTO role (id, name) VALUES
+(0, 'ROLE_COOK');
+
+INSERT INTO cafe_employee (id, first_name, last_name, password, username, cafe_address_id, role_id) VALUES
+(0, 'Никита', 'Туганов', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook', 0, 0);
+-- password : cook1

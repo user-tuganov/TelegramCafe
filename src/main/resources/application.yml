@@ -17,4 +17,8 @@ spring:
 #            mode: always
 server:
     port: 8080
-front-url: "https://b486-62-133-60-127.ngrok-free.app"
+front-url: "https://9d82-62-133-60-127.ngrok-free.app"
+jwt:
+    secret: "6904bbfd6566d0adc879a0f132f379c1ada24116bfde995ecb1a5495b5f4e31a"
+    access-expire: "43200000"
+    refresh-expire: "25200000"

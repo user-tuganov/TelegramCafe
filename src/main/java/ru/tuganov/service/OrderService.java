@@ -8,11 +8,8 @@ import ru.tuganov.dto.order.CafeOrderDiscountDto;
 import ru.tuganov.dto.order.CafeOrderDto;
 import ru.tuganov.dto.OrderStatusDto;
 import ru.tuganov.dto.order.CafeOrderProductDto;
-import ru.tuganov.entity.Product;
-import ru.tuganov.entity.Size;
-import ru.tuganov.entity.Topping;
+import ru.tuganov.entity.*;
 import ru.tuganov.entity.order.CafeOrder;
-import ru.tuganov.entity.TelegramUser;
 import ru.tuganov.entity.order.CafeOrderDiscount;
 import ru.tuganov.entity.order.CafeOrderProduct;
 import ru.tuganov.entity.order.CafeOrderProductTopping;
@@ -38,18 +35,11 @@ public class OrderService {
     private final SimpMessagingTemplate messagingTemplate;
 
     public void setOrderStatus(OrderStatusDto orderStatus) {
-        log.info(String.valueOf(orderStatus.orderId()) + " " + orderStatus.status() + " " + orderStatus.userId());
         CafeOrder order = orderRepository.findCafeOrderById(orderStatus.orderId());
         order.setStatus(orderStatus.status());
-        messagingTemplate.convertAndSend("/frontend/new-status/" + orderStatus.userId(), orderStatus);
+//        messagingTemplate.convertAndSend("/profile/new-status/" + orderStatus.userId(), orderStatus);
+//        messagingTemplate.convertAndSend("/kitchen/new-status/" + order.);
         orderRepository.save(order);
-    }
-
-    private List<CafeOrder> getFilteredOrders(long userId, Set<String> statuses) {
-        List<CafeOrder> orders = telegramUserService.getTelegramUser(userId).getCafeOrders();
-        List<CafeOrder> filteredOrders = orders.stream().filter(order -> statuses.contains(order.getStatus())).toList();
-//        log.info("Filtered orders: {}", filteredOrders.getFirst().getProducts().getFirst());
-        return filteredOrders;
     }
 
     private CafeOrderProductTopping DtoToCafeOrderProductTopping(long toppingId) {
@@ -123,12 +113,14 @@ public class OrderService {
 
     public List<CafeOrder> getCurrentOrders(long userId) {
         Set<String> statuses = Set.of("Оплачен", "Готовится", "Готов");
-        return getFilteredOrders(userId, statuses);
+        TelegramUser telegramUser = telegramUserService.getTelegramUser(userId);
+        return orderRepository.findCafeOrderByTelegramUser(telegramUser, statuses);
     }
 
     public List<CafeOrder> getOrdersHistory(long userId) {
-        Set<String> statuses = Set.of("Завершен", "Отменен");
-        return getFilteredOrders(userId, statuses);
+        Set<String> statuses = Set.of("Выдан", "Отменён");
+        TelegramUser telegramUser = telegramUserService.getTelegramUser(userId);
+        return orderRepository.findCafeOrderByTelegramUser(telegramUser, statuses);
     }
 
     public void saveNewOrder(CafeOrderDto cafeOrderDto) {
@@ -144,5 +136,10 @@ public class OrderService {
         telegramUser.getCafeOrders().add(cafeOrder);
         cafeOrder.setTelegramUser(telegramUser);
         telegramUserService.saveTelegramUser(telegramUser);
+    }
+
+    public List<CafeOrder> getCafeOrders(CafeAddress cafeAddress) {
+        Set<String> statuses = Set.of("Оплачен", "Готовится", "Готов");
+        return orderRepository.findCafeOrdersByCafeAddress(cafeAddress, statuses);
     }
 }
