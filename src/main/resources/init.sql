@@ -45,19 +45,18 @@ INSERT INTO product_toppings (products_id, toppings_id) VALUES
 
 INSERT INTO discount (id, name, description, imageurl, discount_percentage) VALUES
 (0, 'Кофейная Тройка', 'Три вкусных напитка по выгодной цене с возможностью добавить топпинги.', 'https://statics.mixitup.ru/img/uploads/product2/xl/121/1564.jpg', 0.2),
-(1, 'Кофейная Тройка', 'Три вкусных напитка по выгодной цене с воз   можностью добавить топпинги.', 'https://statics.mixitup.ru/img/uploads/product2/xl/121/1564.jpg', 0.15),
-(2, 'Утро с круассаном', 'Кофе + круассан со скидкой 25%', 'https://statics.mixitup.ru/img/uploads/product2/xl/125/1568.jpg', 0.25),
-(3, 'Десертный день', 'Любой десерт + напиток за 399 руб.', 'https://www.marybakery.ru/wp-content/uploads/2020/05/dessert-day.jpg', 0.15);
+(1, 'Утро с круассаном', 'Кофе + круассан со невероятной скидкой, чтобы начать утро с позитива!', 'https://cdn.prod.website-files.com/5f92b98ef775e43402afe27f/6329ae33ae41231f78e6c511_Polyakovfoto_Simple%20Coffee17874.jpg', 0.25),
+(2, 'Десертный день', 'Любой десерт с напитком по выгодной цене только сегодня!', 'https://majaro.ru/wa-data/public/photos/76/02/276.c329e5aac088f1fc9c1f0e45ad4977f6/276.970.jpg', 0.15);
 
 INSERT INTO discount_products (products_id, discounts_id) VALUES
 (0, 0),
-(0, 1),
-(1, 1),
-(2, 2),
-(4, 2),
-(5, 3),
-(6, 3),
-(7, 3);
+(2, 0),
+(3, 0),
+(2, 1),
+(4, 1),
+(5, 2),
+(6, 2),
+(7, 2);
 
 INSERT INTO cafe_address (id, address) VALUES
 (0, 'Москва, Тверская улица, 9'),
@@ -76,5 +75,14 @@ INSERT INTO role (id, name) VALUES
 (0, 'ROLE_COOK');
 
 INSERT INTO cafe_employee (id, first_name, last_name, password, username, cafe_address_id, role_id) VALUES
-(0, 'Никита', 'Туганов', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook', 0, 0);
+(0, 'Никита', 'Туганов', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook', 0, 0),
+(1, 'Алексей', 'Иванов', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook1', 1, 0),
+(2, 'Дмитрий', 'Петров', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook2', 2, 0),
+(3, 'Сергей', 'Сидоров', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook3', 3, 0),
+(4, 'Андрей', 'Смирнов', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook4', 4, 0),
+(5, 'Михаил', 'Кузнецов', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook5', 5, 0),
+(6, 'Евгений', 'Васильев', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook6', 6, 0),
+(7, 'Анна', 'Павлова', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook7', 7, 0),
+(8, 'Ольга', 'Николаева', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook8', 8, 0),
+(9, 'Ирина', 'Федорова', '$2a$10$tUUkcRb2Jt97ZeEiz/YBheQg7FExP4MNJBhKOsakEzDHVOQJT6ek6', 'cook9', 9, 0);
 -- password : cook1

@@ -3,7 +3,6 @@ package ru.tuganov.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Entity
@@ -15,7 +14,7 @@ public class CafeEmployee {
     private String password;
     private String firstName;
     private String lastName;
-    @OneToOne
+    @ManyToOne
     private Role role;
     @ManyToOne
     private CafeAddress cafeAddress;
