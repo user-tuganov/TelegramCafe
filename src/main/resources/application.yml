@@ -2,22 +2,26 @@ spring:
     application:
         name: Cafe
     datasource:
-        url: jdbc:postgresql://localhost:5432/postgres
+#        url: jdbc:postgresql://localhost:5432/postgres
+#        driver-class-name: org.postgresql.Driver
+#        username: postgres
+#        password: privet
+        url: ${DB_URL}
         driver-class-name: org.postgresql.Driver
-        username: postgres
-        password: privet
+        username: ${DB_USERNAME}
+        password: ${DB_PASSWORD}
     jpa:
         hibernate:
             ddl-auto: update
-#        show-sql: true
+        show-sql: true
         generate-ddl: true
     sql:
         init:
             data-locations: classpath:init.sql
-#            mode: always
+            mode: always
 server:
     port: 8080
-front-url: "https://9d82-62-133-60-127.ngrok-free.app"
+front-url: ${FRONT_URL}
 jwt:
     secret: "6904bbfd6566d0adc879a0f132f379c1ada24116bfde995ecb1a5495b5f4e31a"
     access-expire: "43200000"

@@ -3,11 +3,13 @@ package ru.tuganov.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import ru.tuganov.entity.order.CafeOrder;
 
 import java.util.List;
 
 @Entity
+@Setter
 @Getter
 public class CafeAddress {
     @Id
