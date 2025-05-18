@@ -1,6 +1,6 @@
 INSERT INTO product (id, name, type, imageurl, description) VALUES
 (0, 'Капучино', 'Напитки', 'https://mircoffee.ru/ckfinder/userfiles/images/1348611114_02-kapuchino.jpg', 'Классический капучино с нежной молочной пенкой.'),
-(1, 'Чизкейк Нью-Йорк', 'Десерты', 'https://www.marybakery.ru/wp-content/uploads/2017/04/kapkeyki-anons.jpg', 'Классический чизкейк с насыщенным сливочным вкусом.');
+(1, 'Чизкейк Нью-Йорк', 'Десерты', 'https://www.marybakery.ru/wp-content/uploads/2017/04/kapkeyki-anons.jpg', 'Классический чизкейк с насыщенным сливочным вкусом.'),
 (2, 'Латте', 'Напитки', 'https://azbyka.ru/recept/wp-content/uploads/2021/01/close-up-tasty-macchiato-with-milk-table.jpg', 'Нежный кофейный напиток с молоком и воздушной пенкой.'),
 (3, 'Американо', 'Напитки', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXfSMseprNZSqliiNVDY_q7nrq3luh53_ywQ&s', 'Крепкий черный кофе без молока.'),
 (4, 'Круассан с шоколадом', 'Выпечка', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-c7vX3gSZT2zjpIZhLpUXpQwdweQZJAfWcA&s', 'Слоеный круассан с начинкой из бельгийского шоколада.'),
